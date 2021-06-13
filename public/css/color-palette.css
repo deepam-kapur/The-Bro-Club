@@ -1,0 +1,67 @@
+:root {
+    --primary-color: #022e57;
+    --secondary-color: #ff96ad;
+    --gradient-color-bg: rgb(2, 46, 87);
+    --gradient-color: linear-gradient(203deg, rgba(2, 46, 87, 0.8776552857471114) 35%, rgba(255, 150, 173, 0.7404003837863271) 75%);
+}
+
+.gradient-color-bg {
+    background: var(--gradient-color-bg);
+    background: var(--gradient-color);
+}
+
+.bg-primary-color {
+    background-color: var(--primary-color);
+}
+
+.bg-secondary-color {
+    background-color: var(--secondary-color);
+}
+
+.t-primary-color {
+    color: var(--primary-color);
+}
+
+.t-secondary-color {
+    color: var(--secondary-color);
+}
+
+.bg-primary-color-imp {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-secondary-color-imp {
+    background-color: var(--secondary-color) !important;
+}
+
+.t-primary-color-imp {
+    color: var(--primary-color) !important;
+}
+
+.t-secondary-color-imp {
+    color: var(--secondary-color) !important;
+}
+
+.t-white-color {
+    color: #fff;
+}
+
+.bg-white-color {
+    background-color: #fff;
+}
+
+.bg-transparent-color {
+    background-color: transparent;
+}
+
+.noto-sans-font {
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+.mate-sc-font {
+    font-family: 'Mate SC', serif;
+}
+
+.merienda-font {
+    font-family: 'Merienda', cursive;
+}

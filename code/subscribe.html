@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Mate+SC&family=Merienda&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/css/color-palette.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <title>Subscribe</title>
+</head>
+
+<body>
+    <div id="main-div">
+        <section id="header">
+            <div class="container-fluid">
+                <!-- Nav Bar -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-transparent-color fixed-top" id="header-navbar">
+                    <a class="navbar-brand mate-sc-font px-4 fs-xslarge" href="/">The Bro Club</a>
+                    <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarToggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarToggler">
+                        <ul class="navbar-nav ms-auto px-4 text-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#footer">Subscribe</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#footer">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#footer">About Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </section>
+        <section id="home">
+            <div class="container-fluid gradient-color-bg t-white-color div-home-section merienda-font div-sections">
+                <div class="row row-home-section">
+                    <div class="col-md-6">
+                        <div class="h1 text-center">
+                            Check your "Bro Meter" score and win rewards
+                        </div>
+                        <div class="row">
+                            <form class="form-signin t-primary-color noto-sans-font">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control input-control-cls" id="floatingName"
+                                        placeholder="Deepam Kapur">
+                                    <label for="floatingName" class="t-white-color">Full Name</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="email" class="form-control input-control-cls" id="floatingInput"
+                                        placeholder="name@example.com">
+                                    <label for="floatingInput" class="t-white-color">Email Address</label>
+                                </div>
+                                <button class="w-100 btn btn-lg btn-primary-submit" type="submit"><i
+                                        class="fas fa-user-plus" style="font-size: 22px;"></i> Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="position-scroll">
+                        <a href="#contactUs">
+                            <span>Scroll</span>
+                            <img src="img/scroll-mouse.png" alt="" />
+                            <span>Down</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contactUs">
+            <div class="container-fluid div-sections bg-white-color">
+
+            </div>
+        </section>
+        <section id="aboutUs">
+            <div class="container-fluid div-sections gradient-color-bg t-white-color merienda-font">
+
+            </div>
+        </section>
+    </div>
+    <script>
+        var myNav = document.getElementById('header-navbar');
+        document.getElementById("main-div").onscroll = function () {
+            if (this.scrollTop > 0) {
+                myNav.classList.add("nav-colored");
+            }
+            else {
+                myNav.classList.remove("nav-colored");
+            }
+        };
+    </script>
+</body>
+
+</html>
