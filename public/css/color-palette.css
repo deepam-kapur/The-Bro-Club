@@ -3,6 +3,10 @@
     --secondary-color: #ff96ad;
     --gradient-color-bg: rgb(2, 46, 87);
     --gradient-color: linear-gradient(203deg, rgba(2, 46, 87, 0.8776552857471114) 35%, rgba(255, 150, 173, 0.7404003837863271) 75%);
+    --primary-gradient-bg: rgb(255, 255, 255);
+    --primary-gradient-color: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(2, 46, 87, 1) 66%);
+    --secondary-gradient-bg: rgb(255, 255, 255);
+    --secondary-gradient-color: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(255, 150, 173, 1) 75%);
 }
 
 .gradient-color-bg {
@@ -55,7 +59,7 @@
 }
 
 .noto-sans-font {
-    font-family: 'Baloo Tammudu 2', cursive;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .mate-sc-font {
@@ -64,4 +68,9 @@
 
 .merienda-font {
     font-family: 'Merienda', cursive;
+}
+
+.bg-secondary-gradient-cls {
+    background: var(--secondary-gradient-bg);
+    background: var(--secondary-gradient-color);
 }

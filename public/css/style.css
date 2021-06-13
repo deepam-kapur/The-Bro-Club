@@ -49,9 +49,16 @@ body {
 }
 
 .row-home-section {
+    position: relative;
+}
+
+.div-display-table {
+    display: table;
+}
+
+.div-display-table-cell {
     display: table-cell;
     vertical-align: middle;
-    position: relative;
 }
 
 .form-signin {
@@ -143,4 +150,96 @@ body {
     50% {
         bottom: 40px;
     }
+}
+
+.row-contact {
+    width: 80%;
+    margin: auto;
+    -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.div-contact-section {
+    padding: 25px;
+}
+
+.contact-form {
+    padding: 40px 80px 40px 50px
+}
+
+.contact-form .h3 {
+    padding-top: 15px;
+    font-weight: 700
+}
+
+.contact-form label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.contact-form textarea {
+    height: 120px
+}
+
+.contact-form .form-control {
+    background-color: #e7e7e7;
+    box-shadow: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    border-top: 1px solid #bbb
+}
+
+.contact-form .btn {
+    font-size: 1.2rem;
+    font-weight: 700
+}
+
+.contact-form .btn.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    padding: 8px 18px;
+    box-shadow: 0 8px 12px #3535356b
+}
+
+.contact-form .btn.btn-primary:hover {
+    background-color: #004b91
+}
+
+.tilt-envelope {
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.tilt-envelope i {
+    font-size: 80px;
+    color: var(--primary-color);
+}
+
+.contact-form {
+    color: var(--primary-color);
+}
+
+.icons-contact i {
+    font-size: xx-large;
+    color: var(--primary-color);
+    margin: 10px;
+}
+
+.icons-contact {
+    text-decoration: none;
+}
+
+.inline-block-cls {
+    display: inline-block;
+}
+
+.or-cls {
+    border: 2px solid;
+    border-radius: 25%;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 12px;
 }

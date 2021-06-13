@@ -20,6 +20,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
         crossorigin="anonymous"></script>
+    <script src="js/tilt/tilt.jquery.min.js"></script>
     <title>Subscribe</title>
 </head>
 
@@ -40,7 +41,7 @@
                                 <a class="nav-link" href="#footer">Subscribe</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#footer">Contact</a>
+                                <a class="nav-link" href="#contactUs">Contact</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#footer">About Us</a>
@@ -51,8 +52,9 @@
             </div>
         </section>
         <section id="home">
-            <div class="container-fluid gradient-color-bg t-white-color div-home-section merienda-font div-sections">
-                <div class="row row-home-section">
+            <div
+                class="container-fluid gradient-color-bg t-white-color div-home-section merienda-font div-sections div-display-table">
+                <div class="row row-home-section div-display-table-cell">
                     <div class="col-md-6">
                         <div class="h1 text-center">
                             Check your "Bro Meter" score and win rewards
@@ -88,8 +90,84 @@
             </div>
         </section>
         <section id="contactUs">
-            <div class="container-fluid div-sections bg-white-color">
-
+            <div class="container-fluid div-sections bg-white-color div-display-table div-contact-section">
+                <div class="row div-display-table-cell">
+                    <div class="card row-contact">
+                        <div class="row t-primary-color noto-sans-font">
+                            <div class="col-lg-4 left-contact bg-secondary-gradient-cls">
+                                <div class="row mx-auto div-display-table" style="height: 100%;">
+                                    <div class="col-lg-12 text-center div-display-table-cell">
+                                        <div class="row">
+                                            <div class="js-tilt tilt-envelope" data-tilt>
+                                                <i class="fas fa-file-signature ms-4"></i>
+                                            </div>
+                                        </div>
+                                        <div class="row text-center">
+                                            <div class="col-lg-12 py-3 pt-4">
+                                                <div class="h2">
+                                                    <div class="or-cls">OR</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 text-center">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="js-tilt inline-block-cls">
+                                                            <a href="mailto:reachthebroclub@gmail.com"
+                                                                class="icons-contact">
+                                                                <i class="fas fa-at "></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="js-tilt inline-block-cls">
+                                                            <a href="https://www.instagram.com/thebro.club/"
+                                                                class="icons-contact js-tilt">
+                                                                <i class="fab fa-instagram"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="js-tilt inline-block-cls">
+                                                            <a href="tel:8264344464" class="icons-contact js-tilt">
+                                                                <i class="fab fa-whatsapp icons-contact"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="js-tilt inline-block-cls">
+                                                            <a href="https://www.instagram.com/thebro.club/"
+                                                                class="icons-contact">
+                                                                <i class="fab fa-twitter icons-contact"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-form col-lg-8">
+                                <form>
+                                    <div class="form-group pt-3">
+                                        <label for="message">Message</label>
+                                        <textarea name="message" class="form-control" required></textarea>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap justify-content-between pt-4">
+                                        <div class="form-group pt-lg-2 pt-3">
+                                            <label for="name">Your Name</label>
+                                            <input type="text" name="name" class="form-control" required>
+                                        </div>
+                                        <div class="form-group pt-lg-2 pt-3">
+                                            <label for="name">Your Email</label>
+                                            <input type="email" name="email" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="text-center pt-lg-5 mt-lg-4 mt-5">
+                                        <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                            Submit </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="aboutUs">
@@ -99,15 +177,31 @@
         </section>
     </div>
     <script>
-        var myNav = document.getElementById('header-navbar');
+        var classList;
         document.getElementById("main-div").onscroll = function () {
-            if (this.scrollTop > 0) {
-                myNav.classList.add("nav-colored");
-            }
-            else {
-                myNav.classList.remove("nav-colored");
-            }
+            let scrollTop = this.scrollTop;
+            $("section").each(function (ele, ele1) {
+                if ($(this).attr("id") === "header") {
+                    return;
+                }
+                console.log(this.offsetTop, Math.round(scrollTop), $(this).find(".gradient-color-bg").length);
+                if (this.offsetTop === Math.round(scrollTop)) {
+                    if ($(this).find(".gradient-color-bg").length > 0) {
+                        $("#header-navbar").removeClass("nav-colored");
+                        return false;
+                    }
+                    else {
+                        $("#header-navbar").addClass("nav-colored");
+                    }
+                }
+                else {
+                    $("#header-navbar").addClass("nav-colored");
+                }
+            });
         };
+        $('.js-tilt').tilt({
+            scale: 1.5
+        })
     </script>
 </body>
 
