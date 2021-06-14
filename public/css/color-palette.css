@@ -9,6 +9,10 @@
     --secondary-gradient-color: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(255, 150, 173, 1) 75%);
 }
 
+.red-color {
+    color: red;
+}
+
 .gradient-color-bg {
     background: var(--gradient-color-bg);
     background: var(--gradient-color);
@@ -47,11 +51,12 @@
 }
 
 .t-white-color {
-    color: #fff;
+    color: #f7f7f7;
 }
 
 .bg-white-color {
-    background-color: #fff;
+    background-color: #f7f7f7;
+    opacity: 0.85;
 }
 
 .bg-transparent-color {
@@ -60,6 +65,10 @@
 
 .noto-sans-font {
     font-family: 'Noto Sans JP', sans-serif;
+}
+
+.noto-sans-serif-font {
+    font-family: 'Noto Serif', serif;
 }
 
 .mate-sc-font {
@@ -73,4 +82,14 @@
 .bg-secondary-gradient-cls {
     background: var(--secondary-gradient-bg);
     background: var(--secondary-gradient-color);
+}
+
+.bg-primary-gradient-cls {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(2, 46, 87, 0.8580474426098564) 100%);
+}
+
+.bg-grey-gradient-cls {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(186, 186, 186, 1) 100%);
 }

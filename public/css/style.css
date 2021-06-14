@@ -38,6 +38,11 @@ body {
 
 .fs-xslarge {
     font-size: xx-large;
+    transition: 1.5s;
+}
+
+.fs-large {
+    font-size: x-large;
 }
 
 .div-home-section {
@@ -104,8 +109,14 @@ body {
     background-color: transparent;
 }
 
-.nav-colored {
-    background-color: rgba(2, 46, 87, 0.5);
+.nav-primary-colored {
+    background-color: rgba(2, 46, 87, 0.8);
+    transition: 1s;
+}
+
+.nav-secondary-colored {
+    background-color: rgba(255, 150, 173, 0.8);
+    transition: 1s;
 }
 
 #main-div {
@@ -214,7 +225,7 @@ body {
 }
 
 .tilt-envelope i {
-    font-size: 80px;
+    font-size: 100px;
     color: var(--primary-color);
 }
 
@@ -242,4 +253,18 @@ body {
     width: fit-content;
     margin: 30px auto;
     padding: 12px;
+}
+
+.copyright-cls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.display-aboutus-section {
+    position: relative;
+}
+
+.py-6 {
+    padding: 5rem 0 !important;
 }
