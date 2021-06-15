@@ -134,6 +134,7 @@ body {
 }
 
 .position-scroll a {
+    position: relative;
     text-decoration: none;
     color: #fff;
 }
@@ -151,7 +152,7 @@ body {
     animation: MoveUpDown 2s linear infinite;
     position: absolute;
     bottom: 0;
-    left: 46.5%;
+    left: 4%;
 }
 
 @keyframes MoveUpDown {
@@ -267,4 +268,57 @@ body {
 
 .py-6 {
     padding: 5rem 0 !important;
+}
+
+.filter-secondary-color {
+    filter: invert(77%) sepia(77%) saturate(1059%) hue-rotate(294deg) brightness(122%) contrast(137%);
+}
+
+.btn-subscribe {
+    background-color: transparent;
+    color: #ffffff;
+    opacity: 0.7;
+    border: 1px solid #fefefe;
+}
+
+.btn-subscribe:hover {
+    transition: 1s;
+    background-color: rgba(2, 46, 87, 0.5);
+    color: #fefefe;
+    border: 1px solid var(--primary-color);
+}
+
+.img-founder-cls {
+    background: url(../img/deepam.jpg);
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.ping-anchor-cls {
+    text-decoration: none;
+    transition: 2s;
+}
+
+.ping-anchor-cls:hover {
+    transition: 2s;
+    color: var(--primary-color);
+}
+
+.img-mockup {
+    width: fit-content;
+}
+
+.img-mockup i {
+    font-size: 150px;
+}
+
+.top-card-cls {
+    width: 22rem;
+    margin: auto;
+    border-color: #fefefe;
 }
