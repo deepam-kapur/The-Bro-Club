@@ -9,6 +9,10 @@ app.get("/", function (req, res) {
     res.sendFile(__dirname + "/code/subscribe.html");
 });
 
+app.post("/subscribe", function (req, res) {
+    res.sendFile(__dirname + "/code/subscribe.html");
+});
+
 app.listen(PORT, function () {
     console.log("Server started successfully on " + PORT + " port.");
 })
