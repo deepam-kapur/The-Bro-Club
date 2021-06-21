@@ -319,6 +319,16 @@ body {
     display: none;
 }
 
+.input-control-cls {
+    color: #fff !important;
+}
+
+#toasterMsg {
+    top: 10%;
+    right: 10px;
+    width: fit-content;
+}
+
 @media only screen and (min-device-width: 1024px) {
     /* width */
     ::-webkit-scrollbar {
@@ -362,6 +372,9 @@ body {
     .main-title {
         margin: auto;
         width: fit-content;
+    }
+    .position-scroll {
+        display: none;
     }
 }
 
@@ -459,5 +472,10 @@ body {
     }
     .text-center-sm {
         text-align: center;
+    }
+    #toasterMsg {
+        right: 0;
+        left: 0;
+        margin: auto;
     }
 }

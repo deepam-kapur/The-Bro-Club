@@ -80,20 +80,23 @@
                                     </span>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form-signin t-primary-color noto-sans-font">
+                                    <form class="form-signin t-primary-color noto-sans-font" autocomplete="off"
+                                        onsubmit="return false">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control input-control-cls" id="floatingName"
-                                                placeholder="Deepam Kapur">
+                                            <input type="text" class="form-control input-control-cls"
+                                                placeholder="Deepam Kapur" name="fullName">
                                             <label for="floatingName" class="t-white-color">Full Name</label>
                                         </div>
                                         <div class="form-floating">
                                             <input type="email" class="form-control input-control-cls"
-                                                id="floatingInput" placeholder="name@example.com">
+                                                placeholder="name@example.com" name="email">
                                             <label for="floatingInput" class="t-white-color">Email Address</label>
                                         </div>
-                                        <button class="w-100 btn btn-lg btn-primary-submit" type="submit"><i
-                                                class="fas fa-user-plus" style="font-size: 1.4rem;"></i>
-                                            Subscribe</button>
+                                        <button class="w-100 btn btn-lg btn-primary-submit"
+                                            onclick="subscribeUser(this)">
+                                            <i class="fas fa-user-plus" style="font-size: 1.4rem;"></i>
+                                            Subscribe
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -204,20 +207,21 @@
                                         Subscribe
                                     </div>
                                     <div class="card-body">
-                                        <form class="form-signin t-white-color noto-sans-font">
+                                        <form class="form-signin t-white-color noto-sans-font" autocomplete="off"
+                                            onsubmit="return false">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control input-control-cls"
-                                                    id="floatingName" placeholder="Deepam Kapur">
+                                                    name="fullName" placeholder="Deepam Kapur">
                                                 <label for="floatingName">Full Name</label>
                                             </div>
                                             <div class="form-floating">
-                                                <input type="email" class="form-control input-control-cls"
-                                                    id="floatingInput" placeholder="name@example.com">
+                                                <input type="email" class="form-control input-control-cls" name="email"
+                                                    placeholder="name@example.com">
                                                 <label for="floatingInput">Email Address</label>
                                             </div>
-                                            <button class="w-100 btn btn-lg btn-subscribe mt-3" type="submit">
+                                            <button class="w-100 btn btn-lg btn-subscribe mt-3"
+                                                onclick="subscribeUser(this)">
                                                 <i class="fas fa-user-plus" style="font-size: 22px;"></i>
-
                                             </button>
                                         </form>
                                     </div>
@@ -297,23 +301,23 @@
                                 </div>
                             </div>
                             <div class="contact-form col-lg-8">
-                                <form>
+                                <form autocomplete="off" onsubmit="return false">
                                     <div class="form-group pt-3 p-sm-0">
                                         <label for="message">Message</label>
-                                        <textarea name="message" class="form-control" required></textarea>
+                                        <textarea name="message" class="form-control"></textarea>
                                     </div>
                                     <div class="d-flex align-items-center flex-wrap justify-content-between pt-4">
                                         <div class="form-group pt-lg-2 wd-sm-100">
                                             <label for="name">Your Name</label>
-                                            <input type="text" name="name" class="form-control" required>
+                                            <input type="text" name="fullName" class="form-control">
                                         </div>
                                         <div class="form-group pt-lg-2 wd-sm-100">
                                             <label for="name">Your Email</label>
-                                            <input type="email" name="email" class="form-control" required>
+                                            <input type="email" name="email" class="form-control">
                                         </div>
                                     </div>
                                     <div class="text-center pt-lg-5 mt-lg-4 mt-3">
-                                        <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                        <div class="btn btn-primary" onclick="contactUs(this)">
                                             Submit </div>
                                     </div>
                                 </form>
@@ -407,9 +411,117 @@
                 </div>
             </div>
         </section>
+        <div class="toast align-items-center position-absolute text-white bg-gradient" role="alert"
+            aria-live="assertive" aria-atomic="true" id="toasterMsg">
+            <div class="d-flex">
+                <div class="toast-body">
+
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         var classList;
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, { animation: true, autohide: true, delay: 5000 })
+        });
+
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function toasterShow(message, type) {
+            let toaster = $("#toasterMsg");
+            toaster.find(".toast-body").html(message);
+            toaster.removeClass("bg-danger");
+            toaster.removeClass("bg-success");
+            toaster.addClass(type);
+            toastList.forEach(toast => toast.show());
+        }
+
+        function emptyFields(ref) {
+            ref.find("input").val("");
+            ref.find("textarea").val("");
+        }
+
+        function contactUs(btnRef) {
+            let ref = $(btnRef).closest(".contact-form");
+            let fullName = $(ref).find("[name=fullName]").val().trim();
+            let email = $(ref).find("[name=email]").val().trim();
+            let message = $(ref).find("[name=message]").val().trim();
+
+            if (!validateEmail(email)) {
+                return false;
+            }
+
+            if (fullName == "") {
+                toasterShow("Please enter the name.", "bg-danger");
+                return false;
+            }
+            else if (email == "") {
+                toasterShow("Please enter the email.", "bg-danger");
+                return false;
+            }
+            else if (message == "") {
+                toasterShow("Please enter the email.", "bg-danger");
+                return false;
+            }
+
+            $.ajax({
+                url: "/contactUs",
+                method: "POST",
+                data: { fullName: fullName, email: email, message: message }
+            }).done(function (response) {
+                if (response.success) {
+                    toasterShow("Message sent successfully.", "bg-success");
+                    emptyFields(ref);
+                }
+                else {
+                    toasterShow("Some error occurred. Please report this issue to us.", "bg-danger");
+                }
+            });
+        }
+
+        function subscribeUser(btnRef) {
+            let ref = $(btnRef).closest(".form-signin");
+            let fullName = ref.find("[name=fullName]").val();
+            let email = ref.find("[name=email]").val();
+
+            if (!validateEmail(email)) {
+                return false;
+            }
+
+            if (fullName.trim() == "") {
+                toasterShow("Please enter the full name to subscribe to our waitlist.", "bg-danger");
+                return false;
+            }
+            else if (email.trim() == "") {
+                toasterShow("Please enter the email to subscribe to our waitlist.", "bg-danger");
+                return false;
+            }
+
+            $.ajax({
+                url: "/subscribe",
+                method: "POST",
+                data: { fullName: fullName, email: email }
+            }).done(function (response) {
+                if (response.success) {
+                    if (response.alreadyExists) {
+                        toasterShow("You've already subscribed to our waiting list.", "bg-success");
+                        emptyFields(ref);
+                    }
+                    else {
+                        toasterShow("You've successfully subscribed to our waiting list.", "bg-success");
+                    }
+                }
+                else {
+                    toasterShow("Some error occurred. Please report this issue to us.", "bg-danger");
+                }
+            });
+        }
+
         document.getElementById("main-div").onscroll = function () {
             let scrollTop = this.scrollTop;
             $("section").each(function (ele, ele1) {
@@ -452,8 +564,10 @@
             }
         };
 
-        $('.js-tilt').tilt({
-            scale: 1.5
+        $(document).ready(function () {
+            $('.js-tilt').tilt({
+                scale: 1.5
+            });
         });
     </script>
 </body>
